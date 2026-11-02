@@ -1,0 +1,21 @@
+---
+- name: Ansible Local Automation
+  hosts: local
+  become: false
+
+  tasks:
+    - name: Display a welcome message
+      debug:
+        msg: "Ansible is working successfully!"
+
+    - name: Create a demo directory
+      file:
+        path: ~/ansible-demo-folder
+        state: directory
+        mode: '0755'
+
+    - name: Create a sample file
+      file:
+        path: ~/ansible-demo-folder/sample.txt
+        state: touch
+        

@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: likith-portfolio
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: likith-portfolio
+
+  template:
+    metadata:
+      labels:
+        app: likith-portfolio
+
+    spec:
+      containers:
+        - name: portfolio
+          image: likith-portfolio:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
